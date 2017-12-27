@@ -1,0 +1,41 @@
+name:           md2html
+version:        0.1.0.0
+synopsis:       A Markdown-to-HTML-Compiler
+description:    Please see the README
+author:         Juliane Seidl
+maintainer:     seidl5@hm.edu
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+
+extra-source-files:
+    ChangeLog.md
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/ob-fun-ws17/studienarbeit-parser
+
+library
+  hs-source-dirs:     src
+  build-depends:      base >= 4.7 && < 5
+  exposed-modules:    Lib
+  default-language:   Haskell2010
+
+executable md2html-exe
+  main-is:            Main.hs
+  hs-source-dirs:     app
+  ghc-options:        -threaded -rtsopts -with-rtsopts=-N
+  build-depends:      base >= 4.7 && < 5
+                    , md2html
+  default-language:   Haskell2010
+
+test-suite md2html-test
+  type:               exitcode-stdio-1.0
+  main-is:            Spec.hs
+  hs-source-dirs:     test
+  ghc-options:        -threaded -rtsopts -with-rtsopts=-N
+  build-depends:      base >= 4.7 && < 5
+                      , md2html
+  default-language:   Haskell2010
